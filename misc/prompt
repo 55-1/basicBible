@@ -1,0 +1,24 @@
+@workspace modify the code so the selected book and chapter numbers show in the url.
+For example, something like:  http://127.0.0.1:5500/index.html#/1/5
+1 is Genesis, 5 is chapter 5
+
+
+
+https://ajbodev.github.io/Bible.html#/1/5
+
+
+
+
+@workspace good, now modify the code so when a visitor visits http://127.0.0.1:5500/index.html#/2/6 (for example), the chapters and verses for exodus:6 display
+
+@workspace good, the verses appear on page load.  the list of chapter buttons aren't showing though
+
+
+
+
+I'm working on a fast simple bible web viewer (erv).
+
+Give me 10 potential names for this html/javascript bible viewer
+
+Its inspired by bible-html on github:
+https://github.com/ajbodev/bible-html
