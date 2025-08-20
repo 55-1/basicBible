@@ -1,3 +1,4 @@
 #don't commit these
+.gitignore
 .vscode/*
 /test/*
