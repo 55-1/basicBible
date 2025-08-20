@@ -1,0 +1,65 @@
+@font-face {font-family: "Jost"; src: url("../assets/jost.ttf") format("truetype");}
+* {margin: 0; padding: 0; box-sizing: border-box;}
+input[type="radio"], input[type="checkbox"] {display: none;}
+
+
+body, html {background: #222; font: 500 20px/1.3 "Jost", sans-serif; color: #bbb;}
+
+#container {display: flex;}
+
+#books, #chapters, #verses {overflow-y: scroll;	scroll-snap-type: y mandatory;}
+
+#verses {
+  padding: 5px 30px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  overflow: auto;
+}
+.verse-container {display:flex; margin-bottom: 15px;}
+.verse-number {
+  padding-top: 2px;
+  font-size: 16px;
+  opacity: .7;
+  display: block;
+}
+
+.verse-number, .verse-text {padding-left: 15px;}
+
+
+label {
+  cursor: pointer;
+  opacity: 0.8; transition: opacity 0.2s;
+  display: block;
+  position: relative;
+  padding:5px 15px; padding-right:23px;
+  border-left:2px solid #555;
+  }
+  
+label:has(> input[type="radio"]:hover) {text-decoration: underline; opacity: .8; top: -1px;}
+label:has(> input[type="radio"]:active) {top: 1px;}
+label:has(> input[type="radio"]:checked) {opacity:.9; border-left: 2px solid #ddd;}
+
+button {
+  background: #222;
+	padding: 15px 20px;
+  border: none;
+	position:relative;
+	cursor: pointer;
+	opacity: 0.7; transition: opacity 0.2s;
+}
+
+button:hover {opacity: .8; top: -1px;}
+button:active {top:1px;}
+
+#navbar {display: flex;}
+#navbar button {border-left: 2px solid #555;}
+#navbar button#nextChapter {border-left: none;}
+#navbar button:hover {border-left: 2px solid #ddd;}
+#navbar button:active {border-left: 2px solid #ccc;}
+
+#previousChapter {margin-left:auto;}
+#nextChapter:hover {border-right:2px solid #ddd;}
+#nextChapter:active {border-right:2px solid #ccc;}
+
+#nextChapter {border-right:2px solid #555;}
