@@ -5,26 +5,31 @@ input[type="radio"], input[type="checkbox"] {display: none;}
 
 body, html {background: #222; font: 500 20px/1.3 "Jost", sans-serif; color: #bbb;}
 
-#container {display: flex;}
+#container {display: flex; justify-content: space-between;}
 
 #books, #chapters, #verses {overflow-y: scroll;	scroll-snap-type: y mandatory;}
 
-#verses {
-  padding: 5px 30px;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1000px;
-  overflow: auto;
+#verseSection {
+  width: 100%; height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
-.verse-container {display:flex; margin-bottom: 15px;}
-.verse-number {
+#verses {
+  margin:auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 5px;
+
+}
+.verseContainer {display:flex; margin-bottom: 15px;}
+.verseNumber {
   padding-top: 2px;
-  font-size: 16px;
+  font-size: 16px;  
   opacity: .7;
   display: block;
 }
 
-.verse-number, .verse-text {padding-left: 15px;}
+.verseNumber, .verseText {padding-left: 15px;}
 
 
 label {
@@ -63,3 +68,41 @@ button:active {top:1px;}
 #nextChapter:active {border-right:2px solid #ccc;}
 
 #nextChapter {border-right:2px solid #555;}
+
+
+#menu {
+  display: flex;
+  flex-direction: column-reverse;
+  position: fixed; right: 0; bottom: 0;
+  background: #444;
+}
+
+#menuItems {background: #333; font-size: 20px;}
+
+#menuItems input[type="checkbox"] {
+  display: inline-block;
+  width:20px; height:20px;
+  align-self:center;
+  margin: 0 17px;
+  cursor: pointer;
+}
+
+#menuButton, #menuItems {display: none;} 
+
+#menuLabel {
+  display: inline; 
+  font-size: 30px;
+  padding-right: 15px;
+  text-align: right;
+  opacity:.7;
+}
+#menuLabel:hover {opacity: .8; top: -1px;}
+#menuLabel:active {top: 1px;}
+
+.item { display: flex; justify-content: space-between;}  
+.item label:hover, .item input:hover {text-decoration:underline; opacity: .8; top: -1px;}
+.item label:active, .item input:active {top: 1px;}
+
+.item input {position:relative;}
+
+#menu input:checked ~ #menuItems {display: inline;}

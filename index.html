@@ -7,17 +7,36 @@
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
-    
-    <nav id="navbar" style="height: 60px;">
-        <button id="options"><a href="./options/options.html"><img src="./assets/images/options.svg" alt="Options"></a></button>
-    </nav>
-    <div id="container" style="height: calc(-60px + 100vh);">
-        <div id="books"></div>
-        <div id="chapters"></div>
-        <div id="verses"></div>
+
+<div id="container" style="height: 100vh;">
+  <div id="sidebar" style="display: flex;">
+    <div id="books"></div>
+    <div id="chapters"></div>
+  </div>
+  <div id="verseSection">
+    <div id="verses"></div>
+  </div>
+</div>
+
+  <nav id="menu">
+    <label id="menuLabel" for="menuButton">
+      <img id="options" src="./assets/images/options.svg" alt="options" width="24" height="24"/>
+    </label>
+    <input type="checkbox" id="menuButton"/>
+    <div id="menuItems">
+      <div class="item">
+        <label for="showVerseNumbers">Show Verse Numbers</label>
+        <input type="checkbox" id="showVerseNumbers" name="showVerseNumbers" checked/>
+      </div>
+      <div class="item">
+        <label for="showSidebar">Show Sidebar</label>
+        <input type="checkbox" id="showSidebar" name="showSidebar" checked/>
+      </div>
     </div>
-    <script type="module" src="index.js"></script>
-    
+  </nav>
+
+<script type="module" src="index.js"></script>
+<script type="module" src="main/optionsMenu.js"></script>
+
 </body>
 </html>
-  

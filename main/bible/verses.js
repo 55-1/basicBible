@@ -1,39 +1,23 @@
 import { getDataFromXml } from '../../components/getData.js';
-import { speakText } from '../../modules/speakText.js';
-import { getCookie } from '../../components/getCookie.js';
-
 
 function createVerseElement(index, verse) {
   const verseContainer = document.createElement('p');
-  verseContainer.className = 'verse-container';
+  verseContainer.className = 'verseContainer';
 
   const verseNumber = document.createElement('span');
-  verseNumber.className = 'verse-number';
+  verseNumber.className = 'verseNumber';
   verseNumber.style.display = 'block';
   verseNumber.textContent = `${index}`;
   
   const verseText = document.createElement('span');
-  verseText.className = 'verse-text';
+  verseText.className = 'verseText';
   verseText.textContent = verse.textContent;
   
   verseContainer.appendChild(verseNumber);
   verseContainer.appendChild(verseText);
   
   
-  const speakTextCookie = getCookie('speakText');
-  if (speakTextCookie == 'true') {
-    verseContainer.addEventListener('click', () => {
-      if (window.speechSynthesis.speaking) {window.speechSynthesis.cancel();}
-      else {
-        const currentVerseIndex = Array.prototype.indexOf.call(verseContainer.parentNode.children, verseContainer);
-        const verses = document.querySelectorAll('.verse-container');
-        speakText(verse.textContent);
-        for (let i = currentVerseIndex + 1; i < verses.length; i++) {
-          speakText(verses[i].querySelector('.verse-text').textContent);
-        }
-      }
-    });
-  }
+
   return verseContainer;
 }
 
@@ -55,5 +39,9 @@ export async function displayVerses(bookNumber, chapterNumber) {
   versesElement.appendChild(fragment);
   
   versesElement.scrollTop = 0;
+  
+  const showVerseNumbersCheckbox = document.getElementById('showVerseNumbers');
+  const verseNumbers = document.querySelectorAll('.verseNumber');
+  verseNumbers.forEach(verseNumber => verseNumber.style.display = showVerseNumbersCheckbox.checked ? '' : 'none');
 }
 
